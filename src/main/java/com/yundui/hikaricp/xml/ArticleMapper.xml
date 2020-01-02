@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yundui.hikaricp.mapper.ArticleMapper">
+
+    <select id="getArticleExtList" resultType="com.yundui.hikaricp.domain.ext.ArticleExt">
+        select sql_calc_found_rows a.*
+        from article a
+        <where>
+            a.biz='Mzg2NTI0MjE5Mg=='
+            <if test="seq != null">and a.seq = #{seq}</if>
+            <if test="title !=null and title!= '' ">and a.title like concat('%',#{title},'%')</if>
+            <if test="status !=null and status!= '' ">and a.is_deleted =#{status}</if>
+        </where>
+        order by a.publish_time desc
+        limit ${start},${num}
+    </select>
+</mapper>
