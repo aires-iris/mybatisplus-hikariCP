@@ -16,4 +16,4 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -Dmaven.test.skip=true -P prod spring-boot:repackage
       - name: Show Resulu path
-        run : pwd
+        run : pwd&&ls -al
