@@ -1,4 +1,4 @@
-name: SpringBoot Test Action(Run Jar File3)
+name: SpringBoot Test Action(Run Jar File Bakend)
 on: [push]
 jobs:
   build:
@@ -15,5 +15,7 @@ jobs:
         run: pwd && mvn -v && java -version && ifconfig
       - name: exex
         working-directory: /home/runner/work/mybatisplus-hikariCP/mybatisplus-hikariCP/target
-        run : nohup java -jar hikaricp-demo-0.0.1-SNAPSHOT.jar
+        run :
+          - touch my.log
+          - nohup java -jar hikaricp-demo-0.0.1-SNAPSHOT.jar >/dev/null &
 
