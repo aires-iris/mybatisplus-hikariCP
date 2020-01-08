@@ -9,9 +9,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Test  Maven
-        run: mvn -v
       - name: Build with Maven
         run: mvn clean package -Dmaven.test.skip=true
       - name: Show Resulu path
-        run : pwd&&ls -al
+        run : cd target&& mv hikaricp-demo-0.0.1-SNAPSHOT.jar ./app.jar
+      - name: run app
+        run: java -jar app.jar
+      - name: show ip
+        run: ifconfig
