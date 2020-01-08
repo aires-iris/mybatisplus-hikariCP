@@ -12,8 +12,6 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -Dmaven.test.skip=true
       - name: Show Resulu path
-        run : pwd && cd target && ls -al
+        run : pwd && cd target && ls -al&& java -version&&ifconfig
       - name: run app
         run: java -jar hikaricp-demo-0.0.1-SNAPSHOT.jar
-      - name: show ip
-        run: ifconfig
